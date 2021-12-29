@@ -2,9 +2,7 @@ instructions = ">++++++++[<+++++++++>-]<.>++++[<+++++++>-]<+.+++++++..+++.>>++++
 
 cells = {}
 programPointer = 0
-
 instructionPointer = 0
-
 depth = 0
 enterPoint = {}
 
@@ -15,7 +13,6 @@ while instructionPointer < len(instructions):
     programPointer += 1
     if not programPointer in cells:
       cells[programPointer] = 0
-
   if c == '<':
     programPointer -= 1
     if not programPointer in cells:
@@ -38,14 +35,8 @@ while instructionPointer < len(instructions):
       depth += 1
       enterPoint[depth] = instructionPointer - 1
     else:
-      print("a", instructionPointer)
-      while c != ']':
-
+      while instructions[instructionPointer] != ']':
         instructionPointer += 1
-        c = instructions[instructionPointer]
-
-
-      print("b", instructionPointer)
 
   if c == ']':
     if cells[programPointer]:
@@ -53,4 +44,3 @@ while instructionPointer < len(instructions):
       depth -= 1
 
   instructionPointer += 1
-  
